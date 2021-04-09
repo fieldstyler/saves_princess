@@ -17,13 +17,13 @@ end
 
 def print_next_move(m_index, p_index, n)
   if p_index < m_index
-    if (p_index - m_index).abs >= n
+    if (p_index - (m_index - 1)).abs >= (p_index - (m_index - n)).abs
       move = "UP"
     else
       move = "LEFT"
     end
   elsif p_index > m_index
-    if (p_index - m_index).abs >= n
+    if (p_index - (m_index + 1)).abs >= (p_index - (m_index + n)).abs
       move = "DOWN"
     else
       move = "RIGHT"
