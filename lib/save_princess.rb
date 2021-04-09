@@ -1,14 +1,25 @@
 def display_path_to_princess(n, grid)
-  m_index = grid.index('m') - n / 2
   #.index method counts \n as an index position.
   #Subtracting n / 2 will always get the correct index for 'm'
+  m_index = grid.index('m') - n / 2
+  p_index = get_p_index(grid, n)
+  print_directions_to_princess(p_index, m_index, n)
+end
+
+def get_p_index(grid, n)
   p_index = grid.index('p')
+  #.index method counts \n as an index position.
   #The if statement below adjusts the index of 'p' when it is in the bottom row
   if p_index == (n + 1) * (n - 1) || p_index == (n * (n + 1)) - 2
     p_index -= (n - 1)
   end
+  p_index
+end
+
+def print_directions_to_princess(p_index, m_index, n)
   directions_to_princess = ""
   if p_index < m_index
+    #abs of the difference == n / 2 means 'p' and 'm' are in the same row
     until (m_index - p_index).abs == n / 2
       directions_to_princess += "UP\n"
       m_index -= n
