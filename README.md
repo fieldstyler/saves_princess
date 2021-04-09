@@ -17,10 +17,10 @@ cd saves_princess
 ------------------------------
 First Test
 ```
-ruby test/save_princess_test.rb
+rspec spec/save_princess_spec.rb
 ```
 
 Second Test
 ```
-ruby test/save_princess_2_test.rb
+rspec spec/save_princess_2_spec.rb
 ```
