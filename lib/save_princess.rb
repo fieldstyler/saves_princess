@@ -1,9 +1,17 @@
 def display_path_to_princess(n, grid)
-  #.index method counts \n as an index position.
-  #Subtracting n / 2 will always get the correct index for 'm'
-  m_index = grid.index('m') - n / 2
-  p_index = get_p_index(grid, n)
-  print_directions_to_princess(p_index, m_index, n)
+  if n % 2 == 0 || n < 3 || n > 99
+    return 'n must be an odd number between 2 and 100'
+  elsif grid.class != String
+    return 'grid must be a string'
+  elsif !grid.include?('m') || !grid.include?('p')
+    return "mario 'm' and princess 'p' must both be on the grid"
+  else
+    #.index method counts \n as an index position.
+    #Subtracting n / 2 will always get the correct index for 'm'
+    m_index = grid.index('m') - n / 2
+    p_index = get_p_index(grid, n)
+    print_directions_to_princess(p_index, m_index, n)
+  end
 end
 
 def get_p_index(grid, n)
