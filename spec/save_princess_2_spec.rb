@@ -27,7 +27,9 @@ RSpec.describe "Save Princess 2" do
 
   it "Returns a message if the r-value or c-value inputs are invalid" do
     expect(next_move(5, 0, 6, "---\n-m-\n--p")).to eq("r and c must be able to fit on the grid aka smaller than n-1 and greater than or equal to zero")
+    expect(next_move(5, 6, 0, "---\n-m-\n--p")).to eq("r and c must be able to fit on the grid aka smaller than n-1 and greater than or equal to zero")
     expect(next_move(4, 1, -1, "---\n-m-\n--p")).to eq("r and c must be able to fit on the grid aka smaller than n-1 and greater than or equal to zero")
+    expect(next_move(4, -1, 1, "---\n-m-\n--p")).to eq("r and c must be able to fit on the grid aka smaller than n-1 and greater than or equal to zero")
   end
 
   it "Returns a message if the grid input is invalid" do
