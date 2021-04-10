@@ -1,8 +1,18 @@
 
 def next_move(n, r, c, grid)
-  m_index = n * r + c
-  p_index = get_p_index(n, grid)
-  move = print_next_move(m_index, p_index, n)
+  if n < 2 || n > 99
+    return 'n must be a number between 2 and 100'
+  elsif r > (n - 1) || c > (n - 1) || r < 0 || c < 0
+    return 'r and c must be able to fit on the grid aka smaller than n-1 and greater than or equal to zero'
+  elsif grid.class != String
+    return 'grid must be a string'
+  elsif !grid.include?('m') || !grid.include?('p')
+    return "mario 'm' and princess 'p' must both be on the grid"
+  else
+    m_index = n * r + c
+    p_index = get_p_index(n, grid)
+    move = print_next_move(m_index, p_index, n)
+  end
 end
 
 def get_p_index(n, grid)
