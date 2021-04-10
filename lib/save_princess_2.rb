@@ -17,17 +17,33 @@ end
 
 def print_next_move(m_index, p_index, n)
   if p_index < m_index
-    if (p_index - (m_index - 1)).abs >= (p_index - (m_index - n)).abs
-      move = "UP"
-    else
+    if same_row?(m_index, p_index, n)
       move = "LEFT"
+    else
+      move = "UP"
     end
   elsif p_index > m_index
-    if (p_index - (m_index + 1)).abs >= (p_index - (m_index + n)).abs
-      move = "DOWN"
-    else
+    if same_row?(m_index, p_index, n)
       move = "RIGHT"
+    else
+      move = "DOWN"
     end
   end
   move
+end
+
+def same_row?(m_index, p_index, n)
+  x = 0
+  y = 0
+  until p_index >= x * n && p_index <= (x + 1) * n - 1
+    x += 1
+  end
+  until m_index >= y * n && m_index <= (y + 1) * n - 1
+    y += 1
+  end
+  if x == y
+    true
+  else
+    false
+  end
 end
