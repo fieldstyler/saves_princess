@@ -42,10 +42,10 @@ If you're looking for solutions to the HackerRank Save Princess Challenges, copy
 
 Save Princess Solution
 ```
-save_princess_hackerrank_solution.rb
+[save_princess_hackerrank_solution.rb](https://github.com/fieldstyler/saves_princess/blob/main/save_princess_hackerrank_solution.rb)
 ```
 
 Save Princess 2 Solution
 ```
-save_princess_2_hackerrank_solution.rb
+[save_princess_2_hackerrank_solution.rb](https://github.com/fieldstyler/saves_princess/blob/main/save_princess_2_hackerrank_solution.rb)
 ```
