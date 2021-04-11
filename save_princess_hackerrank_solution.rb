@@ -1,0 +1,65 @@
+input = ARGF.read
+lines = input.strip.split("\n")
+n = lines[0].to_i
+grid = lines[1..-1].join("\n")
+
+def display_path_to_princess(n, grid)
+  if n % 2 == 0 || n < 3 || n > 99
+    return 'n must be an odd number between 2 and 100'
+  elsif grid.class != String
+    return 'grid must be a string'
+  elsif !grid.include?('m') || !grid.include?('p')
+    return "mario 'm' and princess 'p' must both be on the grid"
+  else
+    m_index = grid.index('m') - n / 2
+    p_index = get_p_index(grid, n)
+    print_directions_to_princess(p_index, m_index, n)
+  end
+end
+
+def get_p_index(grid, n)
+  p_index = grid.index('p')
+  if p_index == (n + 1) * (n - 1) || p_index == (n * (n + 1)) - 2
+    p_index -= (n - 1)
+  end
+  p_index
+end
+
+def print_directions_to_princess(p_index, m_index, n)
+  directions_to_princess = ""
+  if p_index < m_index
+    until (m_index - p_index).abs == n / 2
+      directions_to_princess += "UP\n"
+      m_index -= n
+    end
+  elsif p_index > m_index
+    until (m_index - p_index).abs == n / 2
+      directions_to_princess += "DOWN\n"
+      m_index += n
+    end
+  end
+  if p_index < m_index
+    until m_index == p_index
+      if (m_index - p_index).abs > 1
+        directions_to_princess += "LEFT\n"
+        m_index -= 1
+      else
+        directions_to_princess += "LEFT"
+        m_index -= 1
+      end
+    end
+  elsif p_index > m_index
+    until m_index == p_index
+      if (m_index - p_index).abs > 1
+        directions_to_princess += "RIGHT\n"
+        m_index += 1
+      else
+        directions_to_princess += "RIGHT"
+        m_index += 1
+      end
+    end
+  end
+  directions_to_princess
+end
+
+print display_path_to_princess(n, grid)
