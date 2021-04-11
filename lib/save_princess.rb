@@ -61,3 +61,11 @@ def print_directions_to_princess(p_index, m_index, n)
   end
   directions_to_princess
 end
+
+def error?(n, grid)
+  if display_path_to_princess(n, grid).include?("UP") || display_path_to_princess(n, grid).include?("DOWN") || display_path_to_princess(n, grid).include?("LEFT") || display_path_to_princess(n, grid).include?("RIGHT")
+    false
+  else
+    true
+  end
+end
